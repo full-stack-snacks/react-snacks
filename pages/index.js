@@ -4,27 +4,9 @@ import styles from '../styles/Home.module.css'
 import useSWR from 'swr'
 import axios from 'axios'
 
-const fetcher = async url => {
+const fetcher = async (url) => {
 
-
-    // const tokenUrl = 'http://localhost:8000/api/token/';
-
-    // const authResponse = await axios.post(tokenUrl,{
-    //     username:'jb',
-    //     password:'jb'
-    // });
-
-    // const token = authResponse.data;
-
-    // console.log('token', token);
-
-    // const config = {
-    //     headers: { Authorization: `Bearer ${token.access}` }
-    // };
-
-    // const response = await axios.get(url, config);
-
-    const url = 'https://drf-snacks-api.herokuapp.com/api/v1/snacks/';
+    url = 'https://drf-snacks-api.herokuapp.com/api/v1/snacks/';
 
     const response = await axios.get(url);
 
