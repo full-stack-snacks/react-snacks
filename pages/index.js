@@ -6,37 +6,27 @@ import axios from 'axios'
 
 const fetcher = async url => {
 
-    // url = 'http://localhost:8000/api/v1/';
-    // url = 'https://swapi.dev/api/starships/9';
-    // url = 'https://drf-snacks-api.herokuapp.com/api/v1/snacks/'
 
-    // url = 'http://localhost:8000/api/v1/snacks/'
+    // const tokenUrl = 'http://localhost:8000/api/token/';
 
-    // const response = await fetch(url);
+    // const authResponse = await axios.post(tokenUrl,{
+    //     username:'jb',
+    //     password:'jb'
+    // });
 
-    // const data = await response.json();
+    // const token = authResponse.data;
 
-    // console.log(data);
+    // console.log('token', token);
 
+    // const config = {
+    //     headers: { Authorization: `Bearer ${token.access}` }
+    // };
 
-    const tokenUrl = 'http://localhost:8000/api/token/';
+    // const response = await axios.get(url, config);
 
-    const authResponse = await axios.post(tokenUrl,{
-        username:'jb',
-        password:'jb'
-    });
+    const url = 'https://drf-snacks-api.herokuapp.com/api/v1/snacks/';
 
-    const token = authResponse.data;
-
-    console.log('token', token);
-
-    const config = {
-        headers: { Authorization: `Bearer ${token.access}` }
-    };
-
-    const response = await axios.get(url, config);
-
-    console.log(response.data);
+    const response = await axios.get(url);
 
     return response.data;
 }
